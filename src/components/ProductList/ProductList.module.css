@@ -1,0 +1,19 @@
+.productList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(300px - 1.5rem), 1fr));
+  padding-inline: unset;
+  list-style-type: none;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.price {
+  margin: unset;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
