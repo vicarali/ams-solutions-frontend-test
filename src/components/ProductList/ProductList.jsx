@@ -1,17 +1,6 @@
-import { useState, useEffect } from "react";
-import { getProducts } from "./productsAPI";
 import styles from "./ProductList.module.css";
 
-export function ProductList() {
-	const [products, setProducts] = useState();
-
-	useEffect(() => {
-		(async () => {
-			const products = await getProducts();
-			setProducts(JSON.parse(products));
-		})();
-	}, []);
-
+export function ProductList({ products }) {
 	return (
 		<ul className={styles.productList}>
 			{products &&

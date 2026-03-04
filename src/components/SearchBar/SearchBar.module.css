@@ -1,0 +1,22 @@
+.searchBarContainer {
+  margin-top: 2rem;
+  position: relative;
+  margin-left: auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar {
+  height: 2rem;
+  width: 20rem;
+  padding-inline: 10px;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  width: 1.25rem;
+  height: auto;
+  filter: invert(1);
+}
