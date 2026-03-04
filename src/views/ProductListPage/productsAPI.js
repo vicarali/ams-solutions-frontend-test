@@ -1,4 +1,4 @@
-const ENDPOINT = "https://itx-frontend-test.onrender.com";
+const ENDPOINT = "https://itx-frontend-test.onrender.com/api/product";
 
 export async function getProducts() {
 	await storeProducts();
@@ -17,7 +17,7 @@ async function storeProducts() {
 }
 
 async function fetchProducts() {
-	return fetch(`${ENDPOINT}/api/product`)
+	return fetch(ENDPOINT)
 		.then((response) => {
 			if (!response.ok) {
 				throw new Error("There was an error fetching the products");
