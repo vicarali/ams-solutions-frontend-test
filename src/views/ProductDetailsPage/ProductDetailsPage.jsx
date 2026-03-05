@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getProduct } from "./productAPI";
 import styles from "./ProductDetailsPage.module.css";
+import { ProductActions } from "../../components/ProductActions/ProductActions";
 
 export function ProductDetailsPage() {
 	const { id } = useParams();
@@ -20,7 +21,7 @@ export function ProductDetailsPage() {
 				<>
 					<img src={product.imgUrl} alt={product.name} />
 					<div>
-						<h1 className={styles.title}>Product description</h1>
+						<h2 className={styles.title}>Product description</h2>
 						<ul>
 							<li>Brand: {product.brand}</li>
 							<li>Model: {product.model}</li>
@@ -34,6 +35,11 @@ export function ProductDetailsPage() {
 							<li>Dimentions: {product.dimentions}</li>
 							<li>Weight: {product.weight}</li>
 						</ul>
+
+						<div>
+							<h2 className={styles.title}>Product options</h2>
+							<ProductActions product={product} />
+						</div>
 					</div>
 				</>
 			)}
