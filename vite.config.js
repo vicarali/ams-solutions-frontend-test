@@ -8,5 +8,9 @@ export default defineConfig({
 		proxy: {
 			"/api": "https://itx-frontend-test.onrender.com"
 		}
+	},
+	test: {
+		globals: true,
+		environment: "jsdom"
 	}
 });
