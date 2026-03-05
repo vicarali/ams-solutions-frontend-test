@@ -1,4 +1,4 @@
-const ENDPOINT = "https://itx-frontend-test.onrender.com/api/product";
+const ENDPOINT = "/api/product";
 
 export async function getProducts() {
 	await storeProducts();

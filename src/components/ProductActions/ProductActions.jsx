@@ -1,14 +1,29 @@
 import styles from "./ProductActions.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { addProductToCart } from "./cartAPI";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export function ProductActions({ product }) {
 	const storages = product.options.storages || [];
 	const colors = product.options.colors || [];
 	const [selectedStorage, setSelectedStorage] = useState(storages[0]?.code);
 	const [selectedColor, setSelectedColor] = useState(colors[0]?.code);
+	const { setCartItemsCount } = useContext(CartContext);
+
+	async function handleFormSubmit(e) {
+		e.preventDefault();
+
+		const productOptions = {
+			storageCode: selectedStorage,
+			colorCode: selectedColor
+		};
+
+		const cartItemsCount = await addProductToCart(product.id, productOptions);
+		setCartItemsCount(cartItemsCount);
+	}
 
 	return (
-		<div className={styles.actionsContainer}>
+		<form className={styles.actionsContainer} onSubmit={handleFormSubmit}>
 			<select
 				name="storage"
 				id="storage"
@@ -33,7 +48,7 @@ export function ProductActions({ product }) {
 					</option>
 				))}
 			</select>
-			<button className="add-to-cart">Add to cart</button>
-		</div>
+			<button>Add to cart</button>
+		</form>
 	);
 }

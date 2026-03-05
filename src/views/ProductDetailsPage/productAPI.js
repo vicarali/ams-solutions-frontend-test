@@ -1,4 +1,4 @@
-const ENDPOINT = "https://itx-frontend-test.onrender.com/api/product";
+const ENDPOINT = "/api/product";
 
 export async function getProduct(id) {
 	await storeProduct(id);
@@ -12,7 +12,7 @@ async function storeProduct(id) {
 	const storedProduct = JSON.parse(localStorage.getItem("lastProductViewed"));
 
 	if (
-		storedProduct.id !== id ||
+		storedProduct?.id !== id ||
 		!productTimestamp ||
 		productTimestamp < Date.now() - CACHE_DURATION
 	) {

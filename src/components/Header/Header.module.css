@@ -1,7 +1,37 @@
 .header {
-  padding: 1rem;
+  padding: 20px;
   background-color: #1a1a1a;
   width: 100%;
   position: sticky;
   top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 3rem;
+  height: auto;
+}
+
+.cartContainer {
+  position: relative;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.cartIcon {
+  filter: invert(1);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: #646cff;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
